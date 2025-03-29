@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>バイトの入力履歴</title>
+</head>
+<body>
+    <h1>ようこそ、{{ username }} さん！（雇い主として）</h1>
+
+    <h2>バイトの入力履歴</h2>
+    {% if bets %}
+    <table>
+        <thead>
+            <tr>
+                <th>日時</th>
+                <th>バイト</th>
+                <th>結果</th>
+                <th>ルール</th>
+                <th>金額</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bet in bets %}
+            <tr>
+                <td>{{ bet.timestamp }}</td>
+                <td>{{ bet.employee_username }}</td>
+                <td>{{ bet.result }}</td>
+                <td>{{ bet.rule }}</td>
+                <td>{{ bet.amount }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>まだバイトによる入力履歴はありません。</p>
+    {% endif %}
+
+    <p><a href="/">機能選択に戻る</a> | <a href="{{ url_for('logout') }}">ログアウト</a></p>
+</body>
+</html>

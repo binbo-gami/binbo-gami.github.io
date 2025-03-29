@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>雇い主</title>
+</head>
+<body>
+    <h1>ようこそ、{{ username }} さん！（雇い主として）</h1>
+
+    <p><a href="{{ url_for('employer_history_page') }}">バイトの入力履歴を見る</a></p>
+    <p><a href="{{ url_for('employer_invite_page') }}">バイトを招待する</a></p>
+
+    <p><a href="/">機能選択に戻る</a> | <a href="{{ url_for('logout') }}">ログアウト</a></p>
+</body>
+</html>

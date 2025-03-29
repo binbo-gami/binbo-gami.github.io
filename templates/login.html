@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form method="POST" action="/login">
+        <div>
+            <label for="username">ユーザー名:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">パスワード:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">ログイン</button>
+    </form>
+    <p>まだアカウントをお持ちではありませんか？ <a href="{{ url_for('register') }}">登録はこちら</a></p>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>バイトを招待</title>
+</head>
+<body>
+    <h1>ようこそ、{{ username }} さん！（雇い主として）</h1>
+
+    <h2>バイトを招待</h2>
+    {% if potential_employees %}
+    <ul>
+        {% for employee in potential_employees %}
+        <li>
+            {{ employee.username }}
+            <a href="{{ url_for('employer_send_invite', employee_id=employee.id) }}">招待</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>招待できるユーザーはいません。</p>
+    {% endif %}
+
+    <p><a href="{{ url_for('koinushi_page') }}">雇い主ページに戻る</a> | <a href="/">機能選択に戻る</a> | <a href="{{ url_for('logout') }}">ログアウト</a></p>
+</body>
+</html>

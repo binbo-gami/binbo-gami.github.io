@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <h1>新規登録</h1>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="/register">
+        <div>
+            <label for="username">ユーザー名:</label>
+            <input type="text" id="username" name="username" required>
+　　　　　　<small>ユーザー名は半角英数字のみ使用可能です。</small>
+        </div>
+        <div>
+            <label for="password">パスワード:</label>
+            <input type="password" id="password" name="password" required>
+            <small>安全なパスワードを設定してください (8文字以上、大文字・小文字・数字を組み合わせることを推奨します)。</small>
+        </div>
+        <button type="submit">登録</button>
+    </form>
+    <p>すでにアカウントをお持ちですか？ <a href="{{ url_for('login') }}">ログイン</a></p>
+</body>
+</html>

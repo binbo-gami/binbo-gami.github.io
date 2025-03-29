@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>招待</title>
+</head>
+<body>
+    <h1>ようこそ、{{ username }} さん！（バイトとして）</h1>
+
+    <h2>招待</h2>
+    {% if invitations %}
+    <ul>
+        {% for invitation in invitations %}
+        <li>
+            {{ invitation.employer.username }} さんから招待状が届いています。
+            <a href="{{ url_for('employee_accept_invite', invitation_id=invitation.id) }}">承認</a> |
+            <a href="{{ url_for('employee_reject_invite', invitation_id=invitation.id) }}">拒否</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>まだ招待状はありません。</p>
+    {% endif %}
+
+    <p><a href="{{ url_for('bait_page') }}">バイトページに戻る</a> | <a href="/">機能選択に戻る</a> | <a href="{{ url_for('logout') }}">ログアウト</a></p>
+</body>
+</html>
